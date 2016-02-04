@@ -14,11 +14,10 @@
 <script type="text/javascript">
 //初始化SWFUpload
 var swfu = '';
-		$(document).ready(function(){
-// 		swfu = new SWFUpload(
+		$(document).ready( function(){
 		var settings = {
 			flash_url:"http://account.test.com:8899/static/swfupload/swfupload.swf",
-			upload_url:"http://account.test.com:8899/upload/start?m=upload&c=attachments&a=swfupload&dosubmit=1&type=pics_multifile",
+			//upload_url:"http://account.test.com:8899/upload/handle?m=upload&c=attachments&a=swfupload&dosubmit=1&type=pics_multifile",
 			file_post_name : "Filedata",
 			post_params:{
 				"SWFUPLOADSESSID":"<?php echo session_id();?>",
@@ -54,7 +53,6 @@ var swfu = '';
 			upload_success_handler:uploadSuccess,
 			upload_complete_handler:uploadComplete
 		};
-// 			});
 		swfu = new SWFUpload(settings);
 		});</script>
 		</head>
@@ -96,13 +94,13 @@ var swfu = '';
 </div>
 </body>
 <script type="text/javascript">
-if ($.browser.mozilla) {
+/* if ($.browser.mozilla) {
 	window.onload=function(){
 	  if (location.href.indexOf("&rand=")<0) {
 			location.href=location.href+"&rand="+Math.random();
 		}
 	}
-}
+} */
 function imgWrap(obj){
 	$(obj).hasClass('on') ? $(obj).removeClass("on") : $(obj).addClass("on");
 }
@@ -136,7 +134,7 @@ function change_params(){
 function set_iframe(id,src){
 	$("#"+id).attr("src",src); 
 }
-function album_cancel(obj,id,source){
+/* function album_cancel(obj,id,source){
 	var src = $(obj).children("img").attr("path");
 	var filename = $(obj).attr('title');
 	if($(obj).hasClass('on')){
@@ -144,7 +142,7 @@ function album_cancel(obj,id,source){
 		var imgstr = $("#att-status").html();
 		var length = $("a[class='on']").children("img").length;
 		var strs = filenames = '';
-		$.get('upload/start?m=upload&c=attachments&a=swfupload_json_del&aid='+id+'&src='+source+'&filename='+filename);
+		//$.get('upload/handle?m=upload&c=attachments&a=swfupload_json_del&aid='+id+'&src='+source+'&filename='+filename);
 		for(var i=0;i<length;i++){
 			strs += '|'+$("a[class='on']").children("img").eq(i).attr('path');
 			filenames += '|'+$("a[class='on']").children("img").eq(i).attr('title');
@@ -156,11 +154,11 @@ function album_cancel(obj,id,source){
 		var file_upload_limit = '10';
 		if(num > file_upload_limit) {alert('不能选择超过'+file_upload_limit+'个附件'); return false;}
 		$(obj).addClass("on");
-		$.get('upload/start?m=upload&c=attachments&a=swfupload_json&aid='+id+'&src='+source+'&filename='+filename);
+		//$.get('upload/handle?m=upload&c=attachments&a=swfupload_json&aid='+id+'&src='+source+'&filename='+filename);
 		$('#att-status').append('|'+src);
 		$('#att-name').append('|'+filename);
 	}
-}
+} */
 </script>
 </html>
 

@@ -1,3 +1,9 @@
+
+<?php 
+echo $_COOKIE['test'];
+session_start();
+echo $_SESSION['name'];
+?>
 <!doctype html>
 <html lang="en">
  <head>
@@ -34,7 +40,7 @@
 					{
 						title:name,
 						id:uploadid,
-						iframe:'/upload/start?m=upload&c=attachments&a=swfupload'+args+setting,
+						iframe:'/upload/handle?m=upload&c=attachments&a=swfupload'+args+setting,
 						width:'500',
 						height:'420'
 					}, 
@@ -154,7 +160,7 @@
 	}
 
 	$('#back').click(function(){
-		window.location.href = "?m=game&c=advice&a=init&pc_hash=<?php echo $_SESSION['pc_hash'];?>";
+		window.location.href = "?m=game&c=advice&a=init";
 	});
 
  	function doValid(){

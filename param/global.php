@@ -16,5 +16,7 @@ define('__SYS_ROUT__' , 'r');
 
 define('__PATH_STATIC__' , __APP_DOMAIN__.'static/');
 
+define('__SYS_GLOBAL_SERVER__','global_server');
+
 
 ?>

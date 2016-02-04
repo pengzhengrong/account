@@ -13,6 +13,7 @@ class ROOT{
 			}
 			$rout = $_GET[__SYS_ROUT__];
 		}
+		@error_log("\n path=".__PATH_APP__.$rout.'.php',"3","/tmp/pzrlog.log");
 		include __PATH_APP__.$rout.'.php';
 	}
 	
