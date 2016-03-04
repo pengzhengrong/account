@@ -10,6 +10,10 @@
         <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <title>手机新华网</title>
+        <link type="text/css" rel="stylesheet" href="<?php echo XINHUA::app()->url->static ?>/css/style.css?v=<?php echo __API_V__ ?>" />
+        <link type="text/css" rel="stylesheet" href="<?php echo XINHUA::app()->url->static ?>/css/focus.css?v=<?php echo __API_V__ ?>" />
+       
+       
     </head>
 
     <body>

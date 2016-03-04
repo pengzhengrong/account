@@ -15,6 +15,7 @@ define('__PATH_UTIL__',__PATH_ROOT__.'/util' );
 define('__SYS_ROUT__' , 'r');
 
 define('__PATH_STATIC__' , __APP_DOMAIN__.'static/');
+define('__PATH_JS__' , __APP_DOMAIN__.'js/');
 
 define('__SYS_GLOBAL_SERVER__','global_server');
 
