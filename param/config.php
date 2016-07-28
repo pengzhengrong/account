@@ -12,5 +12,10 @@ if( !isset($_SERVER[__SYS_GLOBAL_SERVER__])  ){
 	);
 }
 
+function _autoload( $class ){
+	include 'library/'.$class.'/.class.php';
+}
+
+// spl_autoload_register( 'my_autoload' );
 
 ?>

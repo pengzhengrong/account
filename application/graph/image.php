@@ -1,21 +1,23 @@
 <?php
 header("Content-Type: image/jpg; charset=utf-8");
-$width=300;
-$height = 300;
+$width=490;
+$height = 500;
 
-$rectx = $width/6;
-$recty = $width-$width/6;
+$rectx = 50;
+$recty = 440;
 
+$w = $recty-$rectx;
 
-$img = imagecreate( $width , $height );
+$img = imagecreate( $width , $width );
 imagecolorallocate( $img ,0,0,0 );
 $white = imagecolorallocate( $img , 250,250,250 );
-$random = imagecolorallocate( $img , 250 ,0 ,250 );
+$random = imagecolorallocate( $img , 120,120,120 );
 imagefilledrectangle( $img , $rectx,$rectx,$recty,$recty , $white  );
-imageline( $img , 50+200/3 , 50 , 50+200/3 ,  250 , $random );
-imageline( $img , 250-200/3 , 50 , 250-200/3 ,  250 , $random );
-imageline( $img , 50 , 50+200/3 , 250 ,  50+200/3 , $random );
-imageline( $img , 50, 250-200/3 , 250 ,  250-200/3 , $random );
+imagesetthickness($img,2);
+imageline( $img , $rectx+$w/3 , $rectx , $rectx+$w/3 ,  $recty , $random );
+imageline( $img , $recty-$w/3 , $rectx , $recty-$w/3 ,  $recty , $random );
+imageline( $img , $rectx , $rectx+$w/3 , $recty ,  $rectx+$w/3 , $random );
+imageline( $img , $rectx, $recty-$w/3 , $recty ,  $recty-$w/3 , $random );
 imagepng( $img );
 
 

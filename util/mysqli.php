@@ -11,20 +11,33 @@ class mysqlUtil{
 		return $mysqli;
 	}
 	
+	public function __construct(){
+	}
+	
 	public static function insert( $table , $arr ){
-		$keys = array();
-		$values = array();
-		$mysqli = mysqlUtil::connect('10.130.18.206','root','qnsoft','cms');
-		foreach ( $arr as $k => $v ){
+// 		$keys = array_keys( $arr );
+// 		$values = array_values( $arr );
+			$keys = array();
+			$values = array();
+			foreach ( $arr as $k=>$v ){
+				$keys[] = "`".$k."`";
+				if( is_string( $v ) ){
+					$values[] = "'".$v."'";
+					continue;
+				}elseif( is_array( $v ) ){
+					$values[] = "'".json_encode( $v )."'";
+					continue;
+				}else{
+					$values[] = $v;
+				}
+			}
+// 		$mysqli = mysqlUtil::connect('10.130.18.206','root','qnsoft','cms');
+		$mysqli = mysqlUtil::connect('127.0.0.1','root','','test');
 			/* $keys[] = $k;
 			$values[] = $v; */
-			$sql = "insert into cms.".$table ."( newsid, title , status )  values ( $k , '$v' , 1 ) ;";
-			echo $sql ."\n";
-// 		$mysqli->query($sql);
-			
-			
-		}
-		
+			$sql = "insert into test.".$table ."(".implode(',',$keys).")  values (".implode( ',',$values ).") ";
+			@error_log("\n {$sql}",3,"/tmp/tourism.log");
+			$mysqli->query($sql);
 	}
 	
 	public static function select( $table ){

@@ -10,6 +10,7 @@ class attachments {
 		}
 		session_id();
 		session_start();
+// 		$mysql = new mysql();
 		echo $_COOKIE['test'];
 		@error_log("\n test=".$_COOKIE['test'],3,"/tmp/pzrlog.log");
 		ROOT::load_tpl( 'swfupload' );
